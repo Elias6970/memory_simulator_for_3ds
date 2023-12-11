@@ -2,7 +2,8 @@
  *    process name max 15 chars(with spaces)
  *    max 6 processes
  *    en un instante de tiempo solo puede entrar un proceso
- *    en un instante de tiempo pueden salir los procesos que sean
+ *    en un instante de tiempo pueden salir muchos procesos
+ *    20 bloques de memoria
  *
  */
 
@@ -159,8 +160,8 @@ int main(int argc,char* argv[]){
   printf("\n  PRESS B TO CHANGE THE TYPE OF MEMORY\n\t\t\tDEFAULT PRIMER HUECO\n");
    
   //Get inputs from the file
-  //FILE* f = fopen("romfs:/input.txt","r");
-  FILE* f = fopen("sdmc:/3ds/input_memory.txt","r");
+  //FILE* f = fopen("sdmc:/3ds/input_memory.txt","r");
+  FILE* f = fopen("romfs:/example_input_memory.txt","r");
   char c;
   int lines=0;
   while((c = (char)fgetc(f))){
@@ -219,7 +220,7 @@ int main(int argc,char* argv[]){
     if(kDown & KEY_A){    
       if(instructions[loop_index].beginingTime == time){
         findEmptySpace(TYPE_OF_MEMORY,memory,instructions[loop_index],&index);
-        //printf("\n%d\n",index);
+
         if(TYPE_OF_MEMORY == 0)
           index = 0;
         loop_index++;
